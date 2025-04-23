@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio - Luiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <a href="/" class="logo-link">
+          <img src="assets/logo.png" alt="Logo do meu Portfólio" class="logo" id="logo-menu-toggle">
+        </a>
+        <h1>Luiz - Desenvolvedor Full Stack</h1>
+      </div>
+      <div class="contact-menu" id="contact-menu">
+        <ul>
+          <li><a href="tel:+5511993906859"><i class="fas fa-phone"></i> Telefone</a></li>
+          <li><a href="mailto:luiz.fatec2008@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+          <li><a href="https://wa.me/5511993906859" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+          <li><a href="https://www.linkedin.com/in/luiz-eduardo-82a942179/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="https://github.com/luizfelizardo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></li>
+          </ul>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#curriculo">Currículo</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><button id="theme-toggle">🌞</button></li>
+        </ul>
+      </nav>
+      <div id="menu-toggle-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="sobre" class="secao">
+      <div class="container">
+        <h2>Sobre Mim</h2>
+        <p class="texto-digitando" style="--char-count: 286;">Olá! Me chamo Luiz e estou iniciando minha jornada no fascinante mundo da tecnologia como desenvolvedor full stack. Sou movido pela paixão de transformar ideias criativas em aplicações web modernas e funcionais. Tenho grande entusiasmo em aprender e crescer, buscando constantemente aprimorar minhas habilidades em front-end, back-end e tudo que envolve a construção de soluções digitais inovadoras, com foco em performance, design intuitivo e uma experiência de usuário agradável.</p>
+      </div>
+    </section>
+
+    <section id="projetos" class="secao">
+      <div class="container">
+        <h2>Meus Projetos</h2>
+        <div id="projetos-container">
+          <div class="projeto-card-wrapper">
+            <div class="projeto-card">
+              <h3>Portfolio Interativo</h3>
+              <p>Portfólio pessoal feito com HTML, CSS e JavaScript.</p>
+              <button class="ver-detalhes-inicial" data-projeto="portfolio">Ver Detalhes</button>
+            </div>
+          </div>
+
+          <div class="projeto-card-wrapper">
+            <div class="projeto-card">
+              <h3>Projeto Spotify</h3>
+              <p>Um projeto customizado do Spotify utilizando a biblioteca React.</p>
+              <button class="ver-detalhes-inicial" data-projeto="spotify-projeto">Ver Detalhes</button>
+            </div>
+          </div>
+          
+          <div id="detalhe-projeto-spotify-projeto" class="projeto-detalhe">
+            <h3>Projeto Spotify</h3>
+            <p>Este projeto Spotify foi desenvolvido utilizando as tecnologias web fundamentais: HTML para a estrutura, CSS para o estilo e JavaScript para a interatividade e funcionalidades dinâmicas.</p>
+            <img src="assets/spotify1.png" alt="Captura de tela 1" class="foto-pequena">
+            <p><a href="https://deploy-jornada-full-stack.onrender.com/" target="_blank" rel="noopener noreferrer">Acessar Projeto</a></p>
+            <p><a href="https://github.com/luizfelizardo/deploy-jornada-full-stack.git" target="_blank" rel="noopener noreferrer">Ver código no GitHub</a></p>
+            <button class="voltar-resumo">Voltar</button>
+          </div>
+
+          <div class="projeto-card-wrapper">
+            <div class="projeto-card">
+              <h3>Biblioteca Comunitária</h3>
+              <p>Solução Mobile desenvolvida com Firebase e Flutter</p>
+              <button class="ver-detalhes-inicial" data-projeto="projeto-3">Ver Detalhes</button>
+            </div>
+          </div>
+
+          <div class="projeto-card-wrapper">
+            <div class="projeto-card">
+              <h3>Nome do Projeto 4</h3>
+              <p>Descrição breve do projeto 4.</p>
+              <button class="ver-detalhes-inicial" data-projeto="projeto-4">Ver Detalhes</button>
+            </div>
+          </div>
+
+          <div class="projeto-card-wrapper">
+            <div class="projeto-card">
+              <h3>Nome do Projeto 5</h3>
+              <p>Descrição breve do projeto 5.</p>
+              <button class="ver-detalhes-inicial" data-projeto="projeto-5">Ver Detalhes</button>
+            </div>
+          </div>
+
+          <div class="projeto-card-wrapper">
+            <div class="projeto-card">
+              <h3>Nome do Projeto 6</h3>
+              <p>Descrição breve do projeto 6.</p>
+              <button class="ver-detalhes-inicial" data-projeto="projeto-6">Ver Detalhes</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="detalhe-projeto-portfolio" class="projeto-detalhe">
+          <h3>Portfolio Interativo - Detalhes</h3>
+          <p>Aqui estão os detalhes completos sobre o desenvolvimento do meu portfólio interativo. Falei sobre as tecnologias utilizadas, os desafios encontrados e as soluções implementadas...</p>
+          <a href="#">Ver código no GitHub</a>
+          <button class="voltar-resumo">Voltar</button>
+        </div>
+
+        <div id="detalhe-projeto-api-filmes" class="projeto-detalhe">
+          <h3>API de Filmes - Detalhes</h3>
+          <p>Esta seção detalha a criação da minha API RESTful para informações de filmes. Explico como construí os endpoints, a estrutura dos dados e como você pode utilizá-la...</p>
+          <a href="#">Documentação da API</a>
+          <button class="voltar-resumo">Voltar</button>
+        </div>
+
+        <div id="detalhe-projeto-projeto-3" class="projeto-detalhe">
+          <h3>Biblioteca Comunitária</h3>
+          <p>Implementação de um aplicativo mobile para biblioteca comunitária, empregando a linguagem Dart no desenvolvimento e o Firebase como solução de banco de dados. </p>
+          <img src="assets/pi1.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi2.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi3.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi4.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi5.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi6.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi7.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi8.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi9.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <img src="assets/pi10.jpg" alt="Captura de tela 1" class="foto-pequena">
+          <p><a href="https://github.com/luizfelizardo/app_biblioteca/tree/main" target="_blank" rel="noopener noreferrer">Ver código no GitHub</a></p>
+          <button class="voltar-resumo">Voltar</button>
+        </div>
+
+        <div id="detalhe-projeto-projeto-4" class="projeto-detalhe">
+          <h3>Nome do Projeto 4 - Detalhes</h3>
+          <p>Detalhes sobre o Projeto 4...</p>
+          <button class="voltar-resumo">Voltar</button>
+        </div>
+
+        <div id="detalhe-projeto-projeto-5" class="projeto-detalhe">
+          <h3>Nome do Projeto 5 - Detalhes</h3>
+          <p>Detalhes sobre o Projeto 5...</p>
+          <button class="voltar-resumo">Voltar</button>
+        </div>
+
+        <div id="detalhe-projeto-projeto-6" class="projeto-detalhe">
+          <h3>Nome do Projeto 6 - Detalhes</h3>
+          <p>Detalhes sobre o Projeto 6...</p>
+          <button class="voltar-resumo">Voltar</button>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="curriculo" class="secao">
+      <div class="container">
+        <h2>Meu Currículo</h2>
+        <h3>Experiência Profissional</h3>
+        <h3>Formação Acadêmica</h3>
+        <h3>Habilidades</h3>
+        <a href="assets/curriculo.pdf" target="_blank">Download do Currículo (PDF)</a>
+      </div>
+    </section>
+
+       <section id="contato" class="secao">
+      <div class="container">
+        <h2>Entre em contato</h2>
+        <form id="form-contato">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Luiz. Todos os direitos reservados.</p>
+    <div class="social-icons">
+      <a href="https://github.com/luizfelizardo" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/luiz-eduardo-82a942179/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js" type="module"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <div class="canto-inferior-direito"></div>
+
+</body>
+</html>

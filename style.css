@@ -1,0 +1,1032 @@
+/* Reset básico e configurações globais */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Modo escuro */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* Acessibilidade: foco visível */
+button:focus, a:focus {
+  outline: 2px solid #8bc34a;
+  outline-offset: 2px;
+}
+
+/* Container padrão */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+header .container {
+  display: flex;
+  flex-direction: column; /* Coloca os itens (header-top, nav) em coluna */
+  align-items: flex-start; /* Alinha os itens à esquerda */
+  padding: 0 2rem; /* Reduzi o padding vertical aqui para compensar a altura do header */
+}
+
+.header-top {
+  display: flex;
+  align-items: center; /* Alinha verticalmente a logo e o nome */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  margin-bottom: 0.5rem; /* Reduzi o espaço entre a logo/nome e o menu */
+  width: 100%; /* Garante que ocupe a largura total para o justify-content funcionar corretamente */
+}
+
+.logo-link {
+  text-decoration: none;
+  margin-right: 1rem; /* Espaço entre a logo e o nome */
+  position: absolute; /* Permite posicionar a logo */
+  left: 2rem; /* Coloca a logo na esquerda */
+}
+
+.logo {
+  height: 100px; /* Ajustei a altura da logo para um valor mais comum */
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #fff;
+  text-align: center; /* Garante que o texto fique centralizado */
+}
+
+/* Exemplo para telas menores (se precisar ajustar o tamanho) */
+@media (max-width: 768px) {
+  .logo {
+    height: 40px; /* Tamanho menor em telas menores */
+  }
+}
+
+/* Cabeçalho */
+header {
+  color: #fff;
+  padding: 0.75rem 0; /* Reduzi o padding vertical do header */
+  background-color: #343a40;
+  position: fixed; /* Garante que o header esteja sempre no topo inicialmente */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out; /* Transição suave para o efeito de sumir/aparecer */
+  text-align: center;
+  height: auto; /* Deixei a altura automática para se ajustar ao conteúdo com padding menor */
+  min-height: 60px; /* Defini uma altura mínima */
+}
+
+.rolando-para-baixo {
+  transform: translateY(-100%); /* Move o header para fora da tela para cima */
+}
+
+.rolando-para-cima {
+  transform: translateY(0); /* Retorna o header à sua posição original */
+}
+
+/* Navegação */
+nav {
+  width: 100%; /* Garante que a navegação ocupe a largura total */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Reduzi um pouco o gap entre os itens do menu */
+  padding: 0;
+  margin-top: 0; /* Removi a margem superior padrão da ul */
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.3rem 0; /* Reduzi o padding vertical dos links do menu */
+  transition: color 0.3s ease;
+  font-size: 0.9rem; /* Opcional: diminuir a fonte do menu */
+}
+
+nav a:hover {
+  color: #adb5bd;
+}
+
+/* Estilos para o botão de tema (pode precisar de ajustes) */
+nav ul li button#theme-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem; /* Reduzi o tamanho da fonte do botão de tema */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.3rem 0; /* Reduzi o padding do botão de tema */
+  margin: 0; /* Removi margens padrão do botão dentro do li */
+}
+
+nav ul li button#theme-toggle:hover {
+  color: #adb5bd;
+}
+
+/* Botão de alternância de tema */
+#theme-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.5rem;
+}
+
+#theme-toggle:hover {
+  color: #adb5bd;
+}
+
+/* Seções principais com animação de entrada */
+main {
+  padding: 3rem 0;
+}
+
+.secao {
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.secao.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Projetos */
+#projetos h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#projetos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  overflow: visible;
+}
+
+.projeto-card-wrapper {
+  width: calc(33.33% - 1.5rem);
+  margin-bottom: 1.5rem;
+  transition: opacity 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .projeto-card-wrapper {
+    width: calc(50% - 1.5rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .projeto-card-wrapper {
+    width: 100%;
+  }
+}
+
+.projeto-card {
+  background: #fff;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-left: 5px solid #4caf50; /* Borda verde vibrante */
+  padding-top: 2rem; /* Adicione um pouco de padding no topo */
+}
+
+.projeto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Cartão no modo escuro */
+.dark-mode .projeto-card {
+  background: #212529;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+  border-left: 5px solid #8bc34a; /* Garante que a borda exista com cor */
+  padding-top: 2rem; /* Adicione um pouco de padding no topo */
+}
+
+
+.dark-mode .projeto-card:hover {
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Botão ver detalhes */
+.ver-detalhes-inicial {
+  /* ... outras propriedades ... */
+  background: #8bc34a; /* Verde vibrante */
+  color: #fff;
+  /* ... */
+}
+
+.ver-detalhes-inicial:hover {
+  background: #c9cbcc; /* Verde mais escuro */
+}
+
+button {
+  /* ... outras propriedades ... */
+  background: #c9cbcc; /* Laranja vibrante */
+  color: black;
+  /* ... */
+}
+
+button:hover {
+  background: #c9cbcc; /* Laranja mais escuro */
+  color: black;
+}
+
+/* Tela de detalhes do projeto (overlay) */
+.projeto-detalhe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 70vh;
+  background: #f0f0f0; /* Cor de fundo para o modo claro */
+  color: black; /* Cor do texto para o modo claro (padrão) */
+  z-index: 10001;
+  padding: 2rem;
+  overflow-y: auto;
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+}
+
+.projeto-detalhe.ativo {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  background-color: #f1f4f5; /* Cor de fundo para o modo claro (ativo) */
+  color: black; /* Cor do texto para o modo claro (ativo) */
+  padding: 3rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.projeto-detalhe h3 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.projeto-detalhe p {
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+}
+
+.projeto-detalhe a {
+  color: black; /* Cor do texto do link no modo claro */
+  font-weight: bold;
+  transition: border-bottom 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  padding-bottom: 0.1em;
+  border-bottom: 0.1em solid transparent;
+}
+
+.projeto-detalhe a:hover {
+  border-bottom-color: #8bc34a;
+  color: black; /* Cor do texto do link ao passar o mouse no modo claro */
+}
+
+/* Estilos para o modo escuro */
+@media (prefers-color-scheme: dark) {
+  .projeto-detalhe {
+    background-color: #1e272e; /* Nova cor de fundo para o modo escuro (exemplo: um tom de cinza mais escuro) */
+    color: white; /* Cor do texto para o modo escuro */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+  }
+
+  .projeto-detalhe.ativo {
+    background-color: #2c3e50; /* Nova cor de fundo para o modo escuro (ativo) - um pouco mais clara */
+    color: white; /* Cor do texto para o modo escuro (ativo) */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+  }
+
+  .projeto-detalhe h3 {
+    color: white; /* Cor do texto do h3 no modo escuro */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  }
+
+  .projeto-detalhe p {
+    color: white; /* Cor do texto do p no modo escuro */
+  }
+
+  .projeto-detalhe a {
+    color: #aeea00; /* Cor do texto do link no modo escuro */
+  }
+
+  .projeto-detalhe a:hover {
+    color: #8bc34a; /* Cor do texto do link ao passar o mouse no modo escuro */
+  }
+}
+
+/* Remova os estilos da classe .dark-mode se estiver usando apenas the Media Query */
+/* .dark-mode .projeto-detalhe { ... } */
+/* .dark-mode .projeto-detalhe a { ... } */
+
+.dark-mode .projeto-detalhe {
+  background-color: #37474f; /* Tom escuro para o modo escuro */
+  color: white;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .projeto-detalhe a {
+  color: white; /* Verde limão neon para links no modo escuro */
+  
+}
+
+.dark-mode .projeto-detalhe a:hover {
+  color: #8bc34a;
+ 
+}
+
+/* Estilizando o botão voltar para combinar */
+.voltar-resumo {
+  position: absolute;
+  bottom: 20px; /* Ajuste a distância da parte inferior conforme necessário */
+  right: 20px; /* Ajuste a distância da parte direita conforme necessário */
+  /* Adicione outros estilos que você já tem para o botão */
+  padding: 0.7rem 1.2rem;
+  border: 1px solid #6c757d;
+  background-color: #8bc34a;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.voltar-resumo:hover {
+  background-color: #8bc34a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .voltar-resumo {
+  background: #8bc34a; /* Cor de acento neon para o modo escuro */
+  color: #212121;
+  border: 1px solid none;
+}
+
+.dark-mode .voltar-resumo:hover {
+  background-color: #8bc34a;
+  color: #aeea00;
+}
+
+.projeto-detalhe h3,
+.projeto-detalhe p {
+  margin-bottom: 1rem;
+}
+
+.projeto-detalhe a {
+  color: #364d1d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.projeto-detalhe a:hover {
+  color: #8bc34a;
+}
+
+/* Botão voltar */
+.voltar-resumo {
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid #6c757d;
+  background-color:  #8bc34a;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.voltar-resumo:hover {
+  background-color: #6c757d;
+  color: black;
+}
+
+.dark-mode .voltar-resumo {
+  color: #fff;
+  border-color: none;
+}
+
+.dark-mode .voltar-resumo:hover {
+  background-color: #adb5bd;
+  color: #212529;
+}
+
+/* Invisibilidade com transição */
+.projeto-card-wrapper.invisivel {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Formulário de contato */
+form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label {
+  font-weight: bold;
+  color: inherit;
+}
+
+input, textarea {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+  background-color: inherit;
+  color: inherit;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #aeea00;
+  box-shadow: 0 0 0 0.2rem rgba(81, 255, 0, 0.25);
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background: linear-gradient(to right, #8bc34a, #8bc34a); /* Gradiente vibrante */
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px; /* Bordas um pouco mais arredondadas */
+  font-size: 1.1rem; /* Fonte um pouco maior para destaque */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transições para hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+button:hover {
+  transform: translateY(-2px); /* Levemente para cima ao passar o mouse */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada no hover */
+}
+
+button:focus {
+  outline: none; /* Remove a borda de foco padrão */
+  box-shadow: 0 0 0 3px #aeea00; /* Adiciona um anel de foco personalizado */
+}
+
+/* Rodapé */
+footer {
+  background: #343a40;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+}
+
+/* Ícones sociais */
+.social-icons {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  margin-right: 15px;
+  font-size: 1.8rem;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #aeea00;
+}
+
+/* Seção Sobre */
+#contato h2,
+#sobre {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#sobre {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 8rem; /* Aumentei para dar mais espaço do header */
+}
+
+/* Ícone do menu hamburguer */
+
+#menu-toggle-icon {
+  display: none !important; /* Esconder por padrão */
+  flex-direction: column; /* Organizar as barras verticalmente */
+  justify-content: space-between; /* Espaço entre as barras */
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+#menu-toggle-icon span {
+  display: block; /* Para que tenham largura */
+  height: 3px;
+  background-color: #8bc34a;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Animação para o ícone "X" quando o menu está aberto (opcional, mas legal) */
+#menu-toggle-icon.aberto span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#menu-toggle-icon.aberto span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle-icon.aberto span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mostrar ícone ao rolar (mantemos essa lógica) */
+#menu-toggle-icon.visivel {
+  display: flex !important; /* Mostrar quando a condição de rolagem for atendida */
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Menu responsivo */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #343a40;
+    padding: 1rem;
+    position: absolute;
+    top: 60px; /* Ajustei para a nova altura do header */
+    left: 0;
+    right: 0;
+    z-index: 998;
+    gap: 0.5rem;
+  }
+
+  nav ul.aberto {
+    display: flex;
+  }
+
+  /* Mostrar o ícone do menu em telas menores */
+  #menu-toggle-icon {
+    display: flex; /* Garante que ele apareça em telas pequenas */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    /* Outros estilos do ícone */
+  }
+}
+
+/* Estilos padrão para telas maiores (esconder o ícone) */
+#menu-toggle-icon {
+  display: none;
+  /* Outros estilos */
+}
+
+#curriculo {
+  padding: 3rem 0; /* Espaçamento interno da seção, igual às outras */
+  margin-bottom: 4rem; /* Espaçamento abaixo da seção, igual às outras */
+  background-color: #f9f9f9; /* Cor de fundo clara, similar ao "Sobre Mim" */
+}
+
+.dark-mode #curriculo {
+  background-color: #212529; /* Cor de fundo escura para o modo escuro */
+}
+
+#curriculo .container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#curriculo h2 {
+  text-align: center;
+  margin-bottom: 2rem; /* Espaçamento abaixo do título */
+  color: #333; /* Cor do título */
+}
+
+.dark-mode #curriculo h2 {
+  color: #e0e0e0; /* Cor do título no modo escuro */
+}
+
+#curriculo h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #555; /* Cor dos subtítulos */
+}
+
+.dark-mode #curriculo h3 {
+  color: #bdbdbd; /* Cor dos subtítulos no modo escuro */
+}
+
+#curriculo p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333; /* Cor do texto */
+  text-align: center;
+}
+
+.dark-mode #curriculo p {
+  color: #e0e0e0; /* Cor do texto no modo escuro */
+}
+
+#curriculo ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.dark-mode #curriculo ul {
+  color: #e0e0e0;
+}
+
+#curriculo li {
+  margin-bottom: 0.5rem;
+}
+
+#curriculo a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #8bc34a; /* Cor do botão de download */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+#curriculo a:hover {
+  background-color: #bdbdbd; /* Cor do botão de download no hover */
+  color: #000;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Se quiser mudar cores específicas no modo escuro */
+.dark-mode header,
+.dark-mode footer {
+  background-color: #1e1e1e;
+}
+
+#theme-toggle {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- Menu Toggle (Hambúrguer) ---------- */
+#menu-toggle-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+  z-index: 999;
+}
+
+#menu-toggle-icon span {
+  width: 25px;
+  height: 3px;
+  background: currentColor;
+  transition: 0.3s;
+}
+
+/* Animação ao abrir o menu */
+#menu-toggle-icon.aberto span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#menu-toggle-icon.aberto span:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle-icon.aberto span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ---------- Menu Principal ---------- */
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  /* Mostrar ícone hambúrguer */
+  #menu-toggle-icon {
+    display: flex;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 60px; /* Ajustei para a nova altura do header */
+    right: 20px;
+    flex-direction: column;
+    background: var(--cor-fundo, #fff);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 998;
+  }
+
+  nav ul.aberto {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+
+/* Suave transição do menu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-menu {
+  position: absolute; /* Permite posicionar abaixo da logo */
+  top: calc(var(--header-altura) + 10px); /* Posiciona abaixo do header + um pequeno espaço */
+  left: 2rem; /* Alinhado com a logo */
+  background-color: #343a40; /* Cor de fundo do menu */
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  z-index: 1001; /* Garante que fique acima de outros elementos */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* Começa um pouco acima */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.contact-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.contact-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-menu li {
+  margin-bottom: 0.5rem;
+}
+
+.contact-menu li:last-child {
+  margin-bottom: 0;
+}
+
+.contact-menu a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.contact-menu i {
+  margin-right: 0.75rem;
+}
+
+/* Variável CSS para a altura do header (ajuste conforme sua necessidade) */
+:root {
+  --header-altura: 60px; /* Defina a altura padrão do seu header */
+}
+
+header {
+  /* ... outros estilos do header ... */
+  --header-altura: 60px; /* Garante que a variável esteja definida */
+}
+
+/* Modo escuro para o menu de contato (opcional) */
+body.dark-mode .contact-menu {
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .contact-menu a {
+  color: #e0e0e0;
+}
+
+/* Correção para o problema de cortar a seção ao rolar */
+#sobre,
+#projetos,
+#curriculo,
+#contato {
+  scroll-margin-top: var(--header-altura); /* Adiciona margem de rolagem superior */
+  padding-top: 2rem; /* Mantenha um padding superior básico */
+}
+
+/* Ajuste adicional do padding para garantir espaço suficiente */
+#sobre {
+  padding-top: calc(var(--header-altura) + 2rem);
+}
+
+/* Seções com mais conteúdo podem precisar de ajuste similar */
+#projetos {
+  padding-top: calc(var(--header-altura) + 2rem);
+}
+
+#curriculo {
+  padding-top: calc(var(--header-altura) + 2rem);
+}
+
+#contato {
+  padding-top: calc(var(--header-altura) + 1rem);
+}
+
+.texto-interativo {
+  /* Estilos base */
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  text-align: justify;
+  color: #333;
+  margin-top: 2rem;
+  position: relative; /* Necessário para posicionar os pseudo-elementos */
+}
+
+.texto-interativo::before,
+.texto-interativo::after {
+  content: attr(data-text); /* Duplica o texto usando um atributo data */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.2s ease-out;
+}
+
+.texto-interativo::before {
+  color: rgb(238, 123, 47);
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  transform: translateX(-5px);
+}
+
+.texto-interativo::after {
+  color: rgb(144, 94, 236);
+  clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
+  transform: translateX(5px);
+}
+
+.texto-interativo:hover {
+  color: #8bc34a;
+}
+
+.texto-interativo:hover::before {
+  opacity: 0.8;
+  transform: translate(0);
+}
+
+.texto-interativo:hover::after {
+  opacity: 0.8;
+  transform: translate(0);
+}
+
+/* Para o modo escuro */
+body.dark-mode .texto-interativo {
+  color: #e0e0e0;
+}
+
+body.dark-mode .texto-interativo::before {
+  color: #a7ffeb;
+}
+
+body.dark-mode .texto-interativo::after {
+  color: #ff6bcb;
+}
+
+body.dark-mode .texto-interativo:hover {
+  color: #8bc34a;
+}
+
+.canto-inferior-direito {
+  width: 200px; /* Aumentei a largura (e consequentemente o raio) */
+  height: 200px; /* Aumentei a altura (e consequentemente o raio) */
+  background-color: transparent;
+  border-top-left-radius: 200px; /* Raio igual à nova largura/altura */
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top: 200px solid #aeea00; /* Espessura da borda igual à nova largura/altura */
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+footer {
+  /* Seus estilos de rodapé */
+  background: #343a40;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  z-index: 1;
+  position: relative;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.foto-pequena {
+  width: 100px; /* Tamanho inicial das fotos pequenas */
+  height: auto;
+  cursor: pointer; /* Indica que a imagem é clicável */
+  margin-right: 5px; /* Espaçamento entre as fotos */
+}
+
+.foto-grande-container {
+  display: none; /* Inicialmente escondido */
+  position: fixed; /* Fica fixo na tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.foto-grande {
+  max-width: 90%; /* Largura máxima da foto grande */
+  max-height: 90%; /* Altura máxima da foto grande */
+  object-fit: contain; /* Garante que a imagem caiba dentro do container sem cortar */
+}
+
+.fechar-foto-grande {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.fechar-foto-grande:hover {
+  opacity: 1;
+}
